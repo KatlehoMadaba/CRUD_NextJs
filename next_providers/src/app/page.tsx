@@ -1,5 +1,5 @@
 "use client";
-import { Layout, 
+import {Layout, 
   Card, 
   Input,
    Button, 
@@ -26,23 +26,43 @@ const { Title } = Typography;
 //     sm: { span: 14 },
 //   },
 // };
+
 const formItemLayout = {
-  labelCol: { span: 24 }, // Labels span the full width
-  wrapperCol: { span: 24 }, // Input fields span the full width
+  labelCol: { span: 24 }, 
+  wrapperCol: { span: 24 }, 
 };
 
 const inputStyle = {
-  width: "100%", // Ensures all inputs take up 100% width
-  height: "40px", // Standardize input height
+  width: "100%",
+  height: "80px", 
+  fontSize: "24px", 
+  padding: "12px", 
 };
-
+const cardStyle = {
+  display: "flex",
+  flexDirection: "column", 
+  justifyContent: "center", 
+  alignItems: "center", 
+  width: "90%",
+  maxWidth: "600px", // Adjusted width
+  padding: "24px", 
+  borderRadius: "12px", 
+  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Keeps a light shadow for better visibility
+  background: "rgba(141, 195, 201, 0.5)", // Transparent background with a slight white tint
+  minHeight: "400px"
+};
+const buttonStyle = {
+  width: "90%", 
+  height: "50px", 
+  fontSize: "24px",
+};
 const SignUpPage = () => {
   const [passwordStrength, setPasswordStrength] = useState(0);
   const [passwordFeedback, setPasswordFeedback] = useState("");
   const [confirmPasswordStrength, setConfirmPasswordStrength] = useState(0);
   const [confirmPasswordFeedback, setConfirmPasswordFeedback] = useState("");
   const [isConfirmPasswordTyped, setIsConfirmPasswordTyped] = useState(false); 
-  const [isPasswordTyped, setIsPasswordTyped] = useState(false);//user has started typing
+  const [isPasswordTyped, setIsPasswordTyped] = useState(false);
   const [password, setPassword] = useState(""); 
 
   const checkPasswordStrength = (password: string) => {
@@ -94,8 +114,6 @@ const SignUpPage = () => {
     if (!isConfirmPasswordTyped) setIsConfirmPasswordTyped(true);
     checkConfirmPasswordMatch(confirmPassword);
   };
-
-
   const {
     useUserActionState,
     useUserState,
@@ -173,16 +191,7 @@ if (isError) {
           alignItems: "center",
         }}
       >
-        <Card
-          style={{
-            width: 400,
-            padding: "24px",
-            borderRadius: "12px",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-            background: "white",
-            textAlign: "center",
-          }}
-        >
+        <Card style={cardStyle}>
           <Form
             {...formItemLayout}
             form={form}
@@ -191,7 +200,7 @@ if (isError) {
             initialValues={{ variant: "filled" }}
             onFinish={onFinish}
           >
-            <Title level={3}>Get Ready To Sign-Up</Title>
+            <Title level={3}>Sign-Up</Title>
             <Divider />
             <Form.Item
               label="id"
@@ -199,14 +208,16 @@ if (isError) {
               rules={[{ required: true, message: "Please input!" }]}
             >
               <Input style={{ width: "100%" }} 
+              placeholder="id"
               allowClear />
             </Form.Item>
             <Form.Item
               label="First Name"
               name="name"
               rules={[{ required: true, message: "Please input!" }]}
-            >
+              >
               <Input style={{ width: "100%" }} 
+              placeholder="First Name"
               allowClear />
             </Form.Item>
             <Form.Item
@@ -214,14 +225,18 @@ if (isError) {
               name="surname"
               rules={[{ required: true, message: "Please input!" }]}
             >
-              <Input style={{ width: "100%" }} allowClear />
+              <Input style={{ width: "100%" }} 
+              allowClear
+              placeholder="Lastname" />
             </Form.Item>
             <Form.Item
               label="Username"
               name="username"
               rules={[{ required: true, message: "Please input!" }]}
             >
-              <Input style={{ width: "100%" }} allowClear />
+              <Input style={{ width: "100%" }}
+               allowClear
+               placeholder="Username" />
             </Form.Item>
             <Form.Item
               label="Email"
@@ -236,7 +251,7 @@ if (isError) {
               />
             </Form.Item>
             <Form.Item
-              label="password"
+              label="Password"
               name="password"
               rules={[{ required: true, message: "Please input!" }]}
 
@@ -262,7 +277,7 @@ if (isError) {
             </>
               )}
             <Form.Item
-              label="confirmpassword"
+              label="Confirmpassword"
               name="confirmpassword"
               rules={[{ required: true, message: "Please input!" }]}
             >
@@ -296,7 +311,11 @@ if (isError) {
               </>
             )}
             <Form.Item wrapperCol={{ offset: 6, span: 16 }}>
-              <Button type="primary" htmlType="submit">
+              <Button 
+              type="primary" 
+              htmlType="submit"
+              style={buttonStyle}
+              >
                 Sign Up
               </Button>
             </Form.Item>

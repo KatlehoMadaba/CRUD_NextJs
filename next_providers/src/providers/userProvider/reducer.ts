@@ -1,0 +1,66 @@
+import {handleActions} from "redux-actions"
+import { UserActionEnums } from "./action";
+import { INITIAL_STATE, IUserStateContext } from './context';
+
+export const UserReducer=handleActions<IUserStateContext,IUserStateContext>({
+    [UserActionEnums.getUserPending]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.getUserSuccess]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.getUserError]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.getUsersPending]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.getUsersSuccess]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.getUsersError]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.createUserPending]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.createUserSuccess]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.createUserError]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.updateUserPending]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.updateUserSuccess]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.updateUserError]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.deleteUserPending]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.deleteUserSuccess]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+    [UserActionEnums.deleteUserError]:(state,action)=>({
+        ...state,
+        ...action.payload,
+    }),
+},INITIAL_STATE)

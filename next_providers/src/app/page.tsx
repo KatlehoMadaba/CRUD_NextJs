@@ -16,15 +16,24 @@ import { IUser } from '../providers/userProvider/context';
 const { Content } = Layout;
 const { Title } = Typography;
 
+// const formItemLayout = {
+//   labelCol: {
+//     xs: { span: 24 },
+//     sm: { span: 6 },
+//   },
+//   wrapperCol: {
+//     xs: { span: 24 },
+//     sm: { span: 14 },
+//   },
+// };
 const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 6 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 14 },
-  },
+  labelCol: { span: 24 }, // Labels span the full width
+  wrapperCol: { span: 24 }, // Input fields span the full width
+};
+
+const inputStyle = {
+  width: "100%", // Ensures all inputs take up 100% width
+  height: "40px", // Standardize input height
 };
 
 const SignUpPage = () => {
@@ -189,14 +198,16 @@ if (isError) {
               name="id"
               rules={[{ required: true, message: "Please input!" }]}
             >
-              <Input style={{ width: "100%" }} allowClear />
+              <Input style={{ width: "100%" }} 
+              allowClear />
             </Form.Item>
             <Form.Item
               label="First Name"
               name="name"
               rules={[{ required: true, message: "Please input!" }]}
             >
-              <Input style={{ width: "100%" }} allowClear />
+              <Input style={{ width: "100%" }} 
+              allowClear />
             </Form.Item>
             <Form.Item
               label="Last Name"
